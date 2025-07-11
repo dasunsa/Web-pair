@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     async function DanuwaPair() {
         const { state, saveCreds } = await useMultiFileAuthState(`./session`);
         try {
-            let DanuwaPairWeb = makeWASocket({
+            letMR DS OFFICIALWeb = makeWASocket({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
             if (!DanuwaPairWeb.authState.creds.registered) {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');
-                const code = await DanuwaPairWeb.requestPairingCode(num);
+                const code = awaitMR DS OFFICIALWeb.requestPairingCode(num);
                 if (!res.headersSent) {
                     await res.send({ code });
                 }
