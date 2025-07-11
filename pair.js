@@ -20,7 +20,7 @@ function removeFile(FilePath) {
 
 router.get('/', async (req, res) => {
     let num = req.query.number;
-    async function DanuwaPair() {
+    async function MR DS OFFICIAL() {
         const { state, saveCreds } = await useMultiFileAuthState(`./session`);
         try {
             letMR DS OFFICIALWeb = makeWASocket({
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
                 browser: Browsers.macOS("Safari"),
             });
 
-            if (!DanuwaPairWeb.authState.creds.registered) {
+            if (!MR DS OFFICIALWeb.authState.creds.registered) {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');
                 const code = awaitMR DS OFFICIALWeb.requestPairingCode(num);
@@ -42,8 +42,8 @@ router.get('/', async (req, res) => {
                 }
             }
 
-            DanuwaPairWeb.ev.on('creds.update', saveCreds);
-            DanuwaPairWeb.ev.on("connection.update", async (s) => {
+            MR DS OFFICIALWeb.ev.on('creds.update', saveCreds);
+            MR DS OFFICIALWeb.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect } = s;
                 if (connection === "open") {
                     try {
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
                         const sessionDanuwa = fs.readFileSync('./session/creds.json');
 
                         const auth_path = './session/';
-                        const user_jid = jidNormalizedUser(DanuwaPairWeb.user.id);
+                        const user_jid = jidNormalizedUser(MR DS OFFICIALWeb.user.id);
 
                       function randomMegaId(length = 6, numberLength = 4) {
                       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
 
                         const sid = string_session;
 
-                        const dt = await DanuwaPairWeb.sendMessage(user_jid, {
+                        const dt = await MR DS OFFICIALWeb.sendMessage(user_jid, {
                             text: sid
                         });
 
@@ -82,20 +82,20 @@ router.get('/', async (req, res) => {
                     process.exit(0);
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
                     await delay(10000);
-                    DanuwaPair();
+                    MR DS OFFICIAL();
                 }
             });
         } catch (err) {
             exec('pm2 restart danuwa-md');
             console.log("service restarted");
-            DanuwaPair();
+            MR DS OFFICIAL();
             await removeFile('./session');
             if (!res.headersSent) {
                 await res.send({ code: "Service Unavailable" });
             }
         }
     }
-    return await DanuwaPair();
+    return await MR DS OFFICIAL();
 });
 
 process.on('uncaughtException', function (err) {
